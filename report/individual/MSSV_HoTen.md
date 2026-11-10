@@ -55,7 +55,7 @@ Dẫn tới `outputs/annotation_evaluation.json` trong repo. Nếu rework, ghi �
 
 - Runtime, GPU/CPU, phiên bản Ultralytics và Torch: python 3 cpu
 - Các tham số thay đổi so với notebook nếu có và lý do: khong
-- Đường dẫn best checkpoint trong phiên chạy: https://colab.research.google.com/drive/1ynJ3FaMsRY7EQtzqTvxsV4mhRM3Nv_c5#scrollTo=3e0508d8
+- Đường dẫn best checkpoint trong phiên chạy: "/content/Day2-Lab/outputs/yolo26_runs/vehicle_annotation/weights/best.pt"
 
 | Chỉ số trên 10 ảnh eval | Giá trị |
 |---|---:|
@@ -69,9 +69,20 @@ Dẫn tới `outputs/annotation_evaluation.json` trong repo. Nếu rework, ghi �
 Trả lời bốn câu hỏi cuối notebook:
 
 1. Lớp nào recall thấp nhất? Ảnh nào minh họa?
+
+lop bus recall thap nhat, anh drive_052 minh hoa
+
 2. Nếu mAP50 cao nhưng mAP50–95 thấp, cần kiểm điều gì trên box?
+box chua khit, can kiem tra box co rong hon hoac lech so voi box ground true hay ko
+
 3. Lỗi class nào có thể liên quan guideline? Dữ kiện nào hỗ trợ nhận xét?
+Van, do mo hinh vua bo sat vua doan sai
+
 4. Vì sao không dùng 10 ảnh eval để train? Vai trò validation của chúng trong notebook là gì?
+
+Nếu đưa ảnh eval vào train, mô hình đã “thấy” chúng, nên metric trên chính các ảnh đó bị thổi phồng (data leakage) và không phản ánh khả năng tổng quát hoá trên ảnh mới.
+Tập eval/validation là dữ liệu mô hình chưa học, dùng để đo hiệu năng khách quan, phát hiện overfitting, so sánh các lần chạy hoặc cấu hình khác nhau, và chọn checkpoint tốt nhất.
+Trong notebook, các ảnh này thường được dùng để tính mAP, precision, recall theo lớp, vẽ confusion matrix và hiển thị ảnh dự đoán để phân tích lỗi.
 
 ## 6. Khó khăn và cách xử lý
 
