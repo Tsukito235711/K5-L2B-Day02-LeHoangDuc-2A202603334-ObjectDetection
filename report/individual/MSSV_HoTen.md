@@ -4,12 +4,12 @@
 
 ## 1. Thông tin học viên
 
-- Họ tên:
-- MSSV:
-- Email:
-- Lớp:
-- Link repo bài làm:
-- Link Colab đã chạy:
+- Họ tên: Le Hoang Duc
+- MSSV: 2A2026003334
+- Email: 26ai.duclh2@vinuni.edu.vn
+- Lớp: L2
+- Link repo bài làm:https://github.com/Tsukito235711/K5-L2B-Day02-LeHoangDuc-2A202603334-ObjectDetection
+- Link Colab đã chạy:https://colab.research.google.com/drive/1ynJ3FaMsRY7EQtzqTvxsV4mhRM3Nv_c5#scrollTo=3e0508d8
 
 ## 2. Schema và mini guideline
 
@@ -17,13 +17,26 @@ Dẫn tới [GUIDELINE_MINI.md](../../GUIDELINE_MINI.md). Tóm tắt ba ca mơ h
 
 ## 3. Annotation và self-QC
 
-- Số file nhãn train:
-- Kết quả checker và lỗi đã xử lý:
-- Danh sách ít nhất 10 ảnh đã rà bằng mắt:
-- Lỗi bỏ sót/box/class phát hiện khi rà và cách sửa:
+- Số file nhãn train: 50
+- Kết quả checker và lỗi đã xử lý: hop le
+- Danh sách ít nhất 10 ảnh đã rà bằng mắt: 20-29
+- Lỗi bỏ sót/box/class phát hiện khi rà và cách sửa: loi nhan chi bao nua so anh
 - Commit khóa nhãn ban đầu:
 
 ## 4. Gold QC và rework
+
+"iou_match_threshold": 0.5,
+  "precision": 0.385,
+  "recall": 0.7228,
+  "f1": 0.5024,
+  "mean_iou_of_matches": 0.8321,
+  "true_positive": 472,
+  "false_positive": 754,
+  "false_negative": 181,
+  "passed": false,
+  "required_f1": 0.8,
+  "required_mean_iou": 0.7
+  FD va FN do file gold train index khac guide
 
 | Chỉ số | Trước sửa | Sau sửa nếu có |
 |---|---:|---:|
@@ -40,16 +53,16 @@ Dẫn tới `outputs/annotation_evaluation.json` trong repo. Nếu rework, ghi �
 
 ## 5. Kết quả YOLO
 
-- Runtime, GPU/CPU, phiên bản Ultralytics và Torch:
-- Các tham số thay đổi so với notebook nếu có và lý do:
-- Đường dẫn best checkpoint trong phiên chạy:
+- Runtime, GPU/CPU, phiên bản Ultralytics và Torch: python 3 cpu
+- Các tham số thay đổi so với notebook nếu có và lý do: khong
+- Đường dẫn best checkpoint trong phiên chạy: https://colab.research.google.com/drive/1ynJ3FaMsRY7EQtzqTvxsV4mhRM3Nv_c5#scrollTo=3e0508d8
 
 | Chỉ số trên 10 ảnh eval | Giá trị |
 |---|---:|
-| Precision | |
-| Recall | |
-| mAP50 | |
-| mAP50–95 | |
+| Precision | 0.45904435300665103 |
+| Recall | 0.24199967438957484 |
+| mAP50 | 0.27467163992948657 |
+| mAP50–95 | 0.2030939351794731 |
 
 Đặt cả 2 folder `assets/eval_predictions/` và `assets/yolo26_runs/` (giải nén từ `day2_colab_outputs.zip`) cạnh báo cáo và dẫn link tương đối. Không chỉ ghi số; chỉ ra ít nhất một ảnh và vật thể cụ thể.
 
